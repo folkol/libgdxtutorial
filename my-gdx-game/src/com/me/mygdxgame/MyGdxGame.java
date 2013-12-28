@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
@@ -112,6 +113,24 @@ public class MyGdxGame implements ApplicationListener {
 	        camera.unproject(touchPos);
 	        bucket.x = touchPos.x - 64 / 2;
 	     }
+
+	    int speed = 10;
+	    if(Gdx.input.isKeyPressed(Input.Keys.UP))
+	    {
+	        camera.translate(0, speed);
+	    }
+        if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
+        {
+            camera.translate(0, -speed);
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
+        {
+            camera.translate(-speed, 0);
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+        {
+            camera.translate(speed, 0);
+        }
 
 	    if(TimeUtils.nanoTime() - lastDropTime > 1000000000) spawnRaindrop();
 
