@@ -8,4 +8,9 @@
    eJzt17ENhDAMQFFGOJZg/xGvvSJwAeI4ll7xJCQq58sR7Nu27cE+dItuocfcHsfJsx5zexwN9iO+R+vcz+gR1+P3jPXI63FnH/SI6/Gmw1ULPe5520GPmB6RO5I9YyUjvqv+NcmesZLRPVp9smesZNS/x9WuZM9YSU+LJ43cV2N79PbpeZ89YyW9PZ520mNujx7ZM1aix1r0WIseAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGv6AgIQgMY=
   </data>
  </layer>
+ <objectgroup name="Object Layer 1" width="100" height="100">
+  <object name="Fiende" gid="32" x="354" y="220"/>
+  <object name="Fiende 2" gid="32" x="501" y="241"/>
+  <object name="Fiende 3" gid="32" x="374" y="309"/>
+ </objectgroup>
 </map>
