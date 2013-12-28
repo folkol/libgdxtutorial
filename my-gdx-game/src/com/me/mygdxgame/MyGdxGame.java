@@ -10,7 +10,11 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
@@ -30,6 +34,9 @@ public class MyGdxGame implements ApplicationListener {
     Array<Rectangle> raindrops;
 
     long lastDropTime;
+    TiledMap map;
+    private OrthogonalTiledMapRenderer renderer;
+    private Matrix4 angle;
 
 	@Override
 	public void create() {
@@ -56,6 +63,9 @@ public class MyGdxGame implements ApplicationListener {
 
 	      raindrops = new Array<Rectangle>();
 	      spawnRaindrop();
+
+	      map = new TmxMapLoader().load("map.tmx");
+	      renderer = new OrthogonalTiledMapRenderer(map, 1);
 
 	}
 
@@ -84,6 +94,9 @@ public class MyGdxGame implements ApplicationListener {
 	    Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
 	    camera.update();
+
+	    renderer.setView(camera);
+	    renderer.render();
 
 	    batch.setProjectionMatrix(camera.combined);
 	    batch.begin();
